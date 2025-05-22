@@ -1,3 +1,5 @@
+
+
 let subjects = [];
 let editIndex = -1;
 
@@ -114,19 +116,24 @@ function calculateCGPA() {
 function getGradePoint(grade) {
     // Assign grade points as per your grading system
     switch (grade) {
-        case 'S': return 10.0;
-        case 'A': return 9.0;
-        case 'B': return 8.0;
-        case 'C': return 7.0;
-        case 'D': return 6.0;
-        case 'F': return 0.0;
+     case 'A1': return 5.0; //(assuming 75-100%)
+     case 'A2': return 4.5; //(assuming 70-74%)
+     case 'B1': return 4.0; //(assuming 65-69%)
+     case 'B2': return 3.5; //(assuming 60-64%)
+     case 'C1': return 3.0; //(assuming 55-59%)
+     case 'C2': return 2.5; //(assuming 50-54%)
+     case 'D': return 2.0; //(assuming 45-49%)
+     case 'E': return 1.0; //(assuming 40-44%)
+     case 'F': return 0.0; //(assuming below 40%)
+      
+
         default: return 0.0;
     }
 }
 
 function clearForm() {
     document.getElementById('subject').value = '';
-    document.getElementById('grade').value = 'A';
+    document.getElementById('grade').value = 'A1';
     document.getElementById('credit').value = '';
 }
 
@@ -137,3 +144,54 @@ function resetForm() {
     document.getElementById('cgpa').textContent = '0.00';
     clearForm();
 }
+
+
+const modal = document.getElementById('modal')
+const modalCloseBtn = document.getElementById('modal-close-btn')
+const consentForm = document.getElementById('consent-form')
+const modalText = document.getElementById('modal-text')
+const declineBtn = document.getElementById('decline-btn')
+const modalChoiceBtns = document.getElementById('modal-choice-btns')
+
+setTimeout(function(){
+    modal.style.display = 'inline'
+}, 1500)
+
+modalCloseBtn.addEventListener('click', function(){
+    modal.style.display = 'none'
+})
+
+declineBtn.addEventListener('mouseenter', function(){
+    modalChoiceBtns.classList.toggle('modal-choice-btns-reverse')
+})
+
+consentForm.addEventListener('submit', function(e){
+    e.preventDefault()
+    
+    const consentFormData = new FormData(consentForm)
+    const fullName = consentFormData.get('fullName')
+    
+    modalText.innerHTML = `
+    <div class="modal-inner-loading">
+        <img src="image/loading.svg" class="loading">
+        <p id="upload-text">Uploading your data to our server...</p>
+    </div>` 
+    
+    setTimeout(function(){
+        document.getElementById('upload-text').innerText = `
+        Confirming your name and email...`
+    }, 1500)
+    
+    
+    setTimeout(function(){
+        document.getElementById('modal-inner').innerHTML = `
+        <h2>Thanks for signing up <span class="modal-display-name">${fullName}</span> </h2>
+        <p>You can now explore our CGPA calculator! Calculate your grades with ease</p>
+        <div class="idiot-gif">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHdndWw3MzQwbGRmMjZzN2w5ZWM5eDI3N211N3VtaHluMnRuMnpkOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XD9o33QG9BoMis7iM4/giphy.webp">
+        </div>
+    `
+    modalCloseBtn.disabled = false
+    }, 3000)
+  
+}) 
