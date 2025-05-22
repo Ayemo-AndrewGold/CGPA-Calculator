@@ -116,15 +116,15 @@ function calculateCGPA() {
 function getGradePoint(grade) {
     // Assign grade points as per your grading system
     switch (grade) {
-     case 'A1': return 5.0; //(assuming 75-100%)
-     case 'A2': return 4.5; //(assuming 70-74%)
-     case 'B1': return 4.0; //(assuming 65-69%)
-     case 'B2': return 3.5; //(assuming 60-64%)
-     case 'C1': return 3.0; //(assuming 55-59%)
-     case 'C2': return 2.5; //(assuming 50-54%)
-     case 'D': return 2.0; //(assuming 45-49%)
-     case 'E': return 1.0; //(assuming 40-44%)
-     case 'F': return 0.0; //(assuming below 40%)
+     case 'A1': return 4.00; //(assuming 75-100%)
+     case 'A2': return 3.50; //(assuming 70-74%)
+     case 'B1': return 3.25; //(assuming 65-69%)
+     case 'B2': return 3.00; //(assuming 60-64%)
+     case 'C1': return 2.75; //(assuming 55-59%)
+     case 'C2': return 2.50; //(assuming 50-54%)
+     case 'D': return 2.25; //(assuming 45-49%)
+     case 'E': return 2.00; //(assuming 40-44%)
+     case 'F': return 0.00; //(assuming 0-39%)
       
 
         default: return 0.0;

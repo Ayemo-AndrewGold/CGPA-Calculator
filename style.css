@@ -109,6 +109,8 @@ th {
     box-shadow: 0px 0px 6px 2px #666;
     background-color: #212529;
     color: whitesmoke;
+    padding-left:30px ;
+    padding-right: 30px;
 }
 
 .modal h2{
