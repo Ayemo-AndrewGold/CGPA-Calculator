@@ -17,10 +17,10 @@
         <h2>CGPA CALCULATOR</h2>
         <form id="cgpaForm">
 
-            <label for="subject">Subject:</label>
+            <label for="subject">COURSES:</label>
             <input type="text" id="subject" required>
 
-            <label for="grade">Grade:</label>
+            <label for="grade">GRADE:</label>
             <select id="grade">
                 <option value="A1">A1</option>
                 <option value="A2">A2</option>
@@ -33,7 +33,7 @@
                  <option value="F">F</option>
             </select>
 
-            <label for="credit">Credit:</label>
+            <label for="unit">UNITS:</label>
             <input type="number" id="credit" min="1" required>
 
             <button type="button" onclick="addSubject()">
@@ -44,10 +44,10 @@
         <table id="subjectTable">
             <thead>
                 <tr>
-                    <th>Subject</th>
-                    <th>Grade</th>
-                    <th>Credit</th>
-                    <th>Action</th>
+                    <th>COURSES</th>
+                    <th>GRADE</th>
+                    <th>UNITS</th>
+                    <th>ACTION</th>
                 </tr>
             </thead>
             <tbody id="subjectList"></tbody>
